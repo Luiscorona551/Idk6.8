@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IDK 6.8</title>
+<link rel="icon" href="assets/ugs-icon.jpeg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="desktop">
+    <div id="busy-cursor" aria-hidden="true"><span></span></div>
+    <div id="clock">
+      <div id="clock-time">--:--</div>
+      <div id="clock-date"></div>
+    </div>
+
+    <div id="flag-badge" title="Official IDK flag">
+      <img src="assets/official-flag.jpg" alt="Official IDK flag">
+      <span>IDK 6.8</span>
+    </div>
+
+    <button id="start-toggle" type="button" aria-expanded="false" aria-controls="start-menu">
+      <span class="start-mark">▦</span><span>IDK</span>
+    </button>
+    <section id="start-menu" hidden aria-label="Start menu">
+      <div class="start-heading"><strong>IDK 6.8</strong><span>Applications</span></div>
+      <input id="start-search" class="field" type="search" placeholder="Search apps…" aria-label="Search apps">
+      <div class="recent-heading"><span>Recent</span></div>
+      <div id="start-recent" class="recent-apps"></div>
+      <div id="start-apps"></div>
+    </section>
+
+    <div id="icons"></div>
+    <div id="windows"></div>
+
+      <div id="dock"></div>
+      <div id="notifications" aria-live="polite" aria-atomic="false"></div>
+      <button id="notification-toggle" type="button" aria-expanded="false" aria-controls="notifications-panel" aria-label="Open notifications">
+        <span>◌</span><b id="notification-count" hidden>0</b>
+      </button>
+      <section id="notifications-panel" hidden aria-label="Notifications">
+        <div class="notification-panel-heading"><strong>Notifications</strong><button id="notifications-clear" type="button">Clear all</button></div>
+        <div id="notification-list"></div>
+      </section>
+    </div>
+
+  <template id="window-template">
+    <section class="window">
+      <header class="titlebar">
+        <span class="title"></span>
+        <div class="controls">
+          <button class="ctrl min" title="Minimize">&#8211;</button>
+          <button class="ctrl max" title="Maximize">&#9723;</button>
+          <button class="ctrl close" title="Close">&times;</button>
+        </div>
+      </header>
+      <div class="content"></div>
+      <div class="resizer"></div>
+    </section>
+  </template>
+
+  <script src="js/proxy.js"></script>
+  <script src="js/system-apps.js"></script>
+  <script src="js/apps.js"></script>
+  <script src="js/os.js"></script>
+</body>
+</html>

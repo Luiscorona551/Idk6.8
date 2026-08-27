@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: ugs-desktop
+    runtime: node
+    plan: free
+    healthCheckPath: /healthz
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      # Keeps setup sessions valid across restarts.
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SETUP_KEY
+        sync: false
+      # Keep the provider key on the server; it is never shipped to the browser.
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        value: gpt-4o-mini
+      - key: AI_BASE_URL
+        value: https://api.openai.com/v1
